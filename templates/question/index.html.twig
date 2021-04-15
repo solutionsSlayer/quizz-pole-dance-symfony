@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Questions{% endblock %}
+
+{% block body %}
+    <div class="m-5">
+        <h1 class="my-4">Question List</h1>
+
+        <table class="col-12 shadow-lg p-3 mb-5 rounded bg-white table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Answers</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for question in questions %}
+                <tr>
+                    <td>[{{ question.id }}] Figure {{question.title}}</td>
+                    <td>{{ question.content}} </td>
+                    <td>
+                        {% for answer in question.answers %}
+                            <span class="badge badge-pill  p-2">{{ answer.content }}</span> 
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {{question.goodanswer.content}}
+                    </td>
+                    <td>                    
+                        <a class="btn btn-outline-danger" href="{{ path('show_question', {'id': question.id}) }}">show</a>
+                        <a class="btn btn-outline-danger" href="{{ path('edit_question', {'id': question.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="2">No records found</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a class="btn btn-danger text-decoration-none" href="{{ path('create_question') }}">Create</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

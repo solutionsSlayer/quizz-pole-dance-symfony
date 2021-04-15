@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Answer{% endblock %}
+
+{% block body %}
+    <div class="m-5">
+        <h1>Answer</h1>
+
+        <table class="mb-4 p-3 mb-2 bg-light text-dark rounde mt-4 mb-4 table">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ answer.id }}</td>
+                </tr>
+                <tr>
+                    <th>Content</th>
+                    <td>{{ answer.content }}</td>
+                </tr>
+            
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-start">
+            <a class="btn btn-light text-decoration-none m-2" href="{{ path('list_answer') }}">Back to list</a>
+            <a class="btn btn-light text-decoration-none m-2" href="{{ path('edit_answer', {'id': answer.id}) }}">edit</a>
+            {{ include('answer/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quizz List{% endblock %}
+
+{% block body %}
+    <div class="m-5">
+        <h1 class="my-2">Quizz List</h1>
+
+        <table class="mb-4 p-3 mb-2 bg-light text-dark rounde mt-4 mb-4 table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for quizz in quizzs %}
+                <tr>
+                    <td>{{quizz.title}}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="2">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-light text-decoration-none" href="{{ path('create_question') }}">Create</a>
+    </div>
+{% endblock %}

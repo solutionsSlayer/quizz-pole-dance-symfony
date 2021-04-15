@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Let's Play!{% endblock %}
+
+{% block body %}
+    <div class="m-5">
+        <h1 class="my-2">Question List</h1>
+        <h2>{{quizzUniqQuestion}}</h2>
+
+        {{dump(quizz)}}
+        <img src="{{image}}" />
+    </div>
+{% endblock %}

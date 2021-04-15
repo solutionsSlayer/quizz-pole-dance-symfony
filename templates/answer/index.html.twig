@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Answer List{% endblock %}
+
+{% block body %}
+    <div class="m-5">
+        <h1>Answer List</h1>
+        <table class="mb-4 p-3 mb-2 bg-light text-dark rounde mt-4 mb-4 table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Content</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for answer in answers %}
+                <tr>
+                    <td>{{ answer.id }}</td>
+                    <td>{{ answer.content }}</td>
+                    <td>
+                        <a clas="text-decoration-none" href="{{ path('show_answer', {'id': answer.id}) }}">show</a>
+                        <a class="text-decoration-none" href="{{ path('edit_answer', {'id': answer.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a class="btn btn-light text-decoration-none" href="{{ path('create_answer') }}">Create</a>
+    </div>
+{% endblock %}

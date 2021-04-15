@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="d-flex flex-column w-100">
+        {{ form_start(formquestion) }}
+            {{ form_widget(formquestion, { 'attr': {'class': 'form_control'} }) }}
+            {{ form_label(formquestion, formquestion.content, { 'attr': {'class': 'form_control'} }) }}
+            <div class="d-flex">
+                <a class="btn btn-danger text-decoration-none mr-2" href="{{ path('list_question') }}">Back to list</a>
+                <button class="btn btn-danger">{{ button_label|default('Save') }}</button>
+            </div>
+        {{ form_end(formquestion) }}
+    </div>
+</div>
